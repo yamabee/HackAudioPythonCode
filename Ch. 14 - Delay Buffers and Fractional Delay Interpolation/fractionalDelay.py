@@ -1,5 +1,6 @@
 import numpy as np
 
+
 def fractionalDelay(x, buffer, delay):
     intDelay = int(np.floor(delay))
     frac = delay - intDelay

@@ -6,12 +6,12 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-x = np.arange(-1, 1) * 0.01 # Linear amplitude values over FS range
+x = np.arange(-1, 1) * 0.01  # Linear amplitude values over FS range
 N = len(x)
 x_dB = np.zeros(N)
 
 for n in range(N):
-    x_dB[n] = 20 * np.log10(abs(x[n])) # convert to dB
+    x_dB[n] = 20 * np.log10(abs(x[n]))  # convert to dB
     if x_dB[n] < -144:  # Conditional to prevent values of negative infinity
         x_dB[n] = -144  # or anything below noise floor
 

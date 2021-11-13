@@ -9,7 +9,7 @@ from modDelay import modDelay
 from IPython.display import Audio
 
 Fs = 48000
-x = np.append(1, np.zeros(int(Fs*0.5))) # Add zero-padding for reverb tail
+x = np.append(1, np.zeros(int(Fs*0.5)))  # Add zero-padding for reverb tail
 
 # Max delay of 70ms
 maxDelay = int(np.ceil(0.07 * Fs))
@@ -39,13 +39,12 @@ N = len(x)
 out = np.zeros(N)
 
 fb1 = 0
-fb2 = 0 # feedback holding variables
+fb2 = 0  # feedback holding variables
 
 for n in range(N):
     # Combine input with feedback for respective delay lines
     xDL1 = x[n] + fb1
     xDL2 = x[n] + fb2
-
 
     # Two parallel delay lines
     outDL1, buffer1 = modDelay(xDL1, buffer1, Fs, n, d1, amp1, rate1)

@@ -15,8 +15,8 @@ x, Fs = soundfile.read('Synth.wav')
 sc, _ = soundfile.read('Kick.wav')
 
 # Parameters for compressor
-T = -24 # Threshold = -24 dBFS
-R = 10 # Ratio = 10:1
+T = -24  # Threshold = -24 dBFS
+R = 10  # Ratio = 10:1
 
 # Initialize separate attack and release times
 attackTime = 0.05  # time in seconds
@@ -67,18 +67,17 @@ for n in range(N):
     # Update gainSmoothPrev used in the next sample of the loop
     gainSmoothPrev = gainSmooth
 
-
 t = np.arange(0, N)/Fs
 
-plt.subplot(3,1,1)
-plt.plot(t,x)
+plt.subplot(3, 1, 1)
+plt.plot(t, x)
 plt.title('Input Signal - Synth')
 plt.axis([0, t[-1], -1.1, 1.1])
-plt.subplot(3,1,2)
+plt.subplot(3, 1, 2)
 plt.plot(t, sc)
 plt.title('Sidechain - Kick')
 plt.axis([0, t[-1], -1.1, 1.1])
-plt.subplot(3,1,3)
+plt.subplot(3, 1, 3)
 plt.plot(t, y, t, lin_A)
 plt.title('Output')
 plt.axis([0, t[-1], -1.1, 1.1])

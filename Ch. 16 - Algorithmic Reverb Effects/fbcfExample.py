@@ -11,14 +11,14 @@ from IPython.display import Audio
 
 x, Fs = soundfile.read('AcGtr.wav')
 
-maxDelay = int(np.ceil(0.05 * Fs)) # maximum delay of 50ms
-buffer = np.zeros(maxDelay) # initialize delay buffer
+maxDelay = int(np.ceil(0.05 * Fs))  # maximum delay of 50ms
+buffer = np.zeros(maxDelay)  # initialize delay buffer
 
-d = 0.04 * Fs # 40ms of delay
-g = -0.7 # feedback gain value
+d = 0.04 * Fs  # 40ms of delay
+g = -0.7  # feedback gain value
 
-rate = 0.6 # Hz (frequency of LFO)
-amp = 6 # Range of +/- 6 samples for delay
+rate = 0.6  # Hz (frequency of LFO)
+amp = 6  # Range of +/- 6 samples for delay
 
 # Initialize output signal
 N = len(x)

@@ -12,6 +12,7 @@
 
 import numpy as np
 
+
 def bitReduction(x, nBits):
     # Determine the desired number of possible amplitude values
     ampValues = pow(2, nBits)

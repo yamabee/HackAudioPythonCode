@@ -10,14 +10,14 @@ import matplotlib.pyplot as plt
 from IPython.display import Audio
 
 # Import our audio file
-[x, Fs] = soundfile.read('sw20.wav')
+x, Fs = soundfile.read('sw20.wav')
 Ts = 1/Fs
 
 # Known tempo of recording
-beatsPerMin = 102 # units of beats/minute
+beatsPerMin = 102  # units of beats/minute
 
-# Calculate beats fore second
-beatsPerSec = beatsPerMin / 60 # 1 minute/60 seconds
+# Calculate beats per second
+beatsPerSec = beatsPerMin / 60  # 1 minute/60 seconds
 
 # Calculate # of seconds per beat
 secPerBeat = 1/beatsPerSec
@@ -29,9 +29,9 @@ noteDiv = 0.5
 timeSec = noteDiv * secPerBeat
 
 # Convert to units of samples
-d = int(np.fix(timeSec * Fs)) # round to nearest integer sample
+d = int(np.fix(timeSec * Fs))  # round to nearest integer sample
 
-b = 0.75 # amplitude of delay branch
+b = 0.75  # amplitude of delay branch
 
 # Total number of samples
 N = len(x)

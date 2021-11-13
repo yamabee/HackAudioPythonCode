@@ -1,7 +1,3 @@
-import numpy as np
-import soundfile
-
-
 # RMSAMP
 # This script demonstrates the process of calculating the RMS
 # amplitude of a signal. First, the samples in the signal are squared.
@@ -9,12 +5,15 @@ import soundfile
 # is found. Third, the square root of the mean of the squared
 # signal is determined.
 
+import numpy as np
+import soundfile
+
 # Sine wave signal for testing
-[x, Fs] = soundfile.read('sw20.wav') # have to use [x, Fs] rather than just x, problems arise
-N = len(x) # total number of samples
+x, Fs = soundfile.read('sw20.wav')  # have to use [x, Fs] rather than just x, problems arise
+N = len(x)  # total number of samples
 
 # Square the individual samples of the signal
-sigSquared = np.square(x) # Element-wise power operation; result is an array
+sigSquared = np.square(x)  # Element-wise power operation; result is an array
 # Find the mean. Note: result is now scalar
 sigMeanSquared = (1/N) * np.sum(sigSquared)
 

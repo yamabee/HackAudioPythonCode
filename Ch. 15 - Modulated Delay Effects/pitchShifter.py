@@ -21,6 +21,7 @@ import matplotlib.pyplot as plt
 from scipy import signal
 from crossfades import crossfades
 
+
 def pitchShifter(x, Fs, semitones):
     Ts = 1 / Fs
     N = len(x)  # Total number of samples

@@ -19,8 +19,8 @@ Wn = 1000/Nyq
 [bLow, aLow] = signal.butter(n, Wn, output='ba')
 [bHi, aHi] = signal.butter(n, Wn, 'highpass', output='ba')
 
-[W, hLow] = signal.freqz(b=bLow, a=aLow, worN=4096, fs=Fs)
-[_,hHi] = signal.freqz(b=bHi, a=aHi, worN=4096, fs=Fs)
+W, hLow = signal.freqz(b=bLow, a=aLow, worN=4096, fs=Fs)
+_, hHi = signal.freqz(b=bHi, a=aHi, worN=4096, fs=Fs)
 
 plt.semilogx(W, 20*np.log10(abs(hLow)), W, 20*np.log10(abs(hHi)))
 plt.axis([20, 20000, -24, 6])

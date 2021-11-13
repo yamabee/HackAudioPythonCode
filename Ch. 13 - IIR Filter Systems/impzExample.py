@@ -15,13 +15,13 @@ from impz import impz
 [x, Fs] = soundfile.read('AcGtr.wav')
 Nyq = Fs/2
 
-m = 4 # order of the filter
+m = 4  # order of the filter
 
-freqHz = 2000 # frequency in Hz
+freqHz = 2000  # frequency in Hz
 Wn = freqHz/Nyq
 
 [b,a] = signal.butter(m, Wn)
-h = impz(b,a) # approximate system
+h = impz(b, a)  # approximate system
 
 y = np.convolve(x, h)
 Audio(y, rate=Fs)

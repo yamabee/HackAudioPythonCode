@@ -14,7 +14,7 @@ from apf import apf
 from IPython.display import Audio
 
 x, Fs = soundfile.read('AcGtr.wav')
-x = np.append(x, np.zeros(Fs*3)) # Add zero-padding for reverb tail
+x = np.append(x, np.zeros(Fs*3))  # Add zero-padding for reverb tail
 
 # Max delay of 70ms
 maxDelay = int(np.ceil(0.07 * Fs))

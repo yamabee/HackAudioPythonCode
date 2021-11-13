@@ -85,7 +85,7 @@ for n in range(N):
     fb3 = g * (g31*outDL1 + g32*outDL2 + g33*outDL3 + g34*outDL4)
     fb4 = g * (g41*outDL1 + g42*outDL2 + g43*outDL3 + g44*outDL4)
 
-out = out/max(abs(out)) # Normalize to unity gain (0 dB)
+out = out/max(abs(out))  # Normalize to unity gain (0 dB)
 
 t = np.arange(0, N) * Ts
 plt.plot(t, 20 * np.log10(abs(out)))

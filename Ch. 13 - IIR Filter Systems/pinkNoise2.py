@@ -22,4 +22,4 @@ F, H = signal.freqz(b, a, 4096, fs=Fs)
 plt.semilogx(F, 20 * np.log10(abs(H)))
 # plt.axis([20, 20000, -30, 0])
 
-pink = signal.lfilter(b,a,white)
+pink = signal.lfilter(b, a, white)

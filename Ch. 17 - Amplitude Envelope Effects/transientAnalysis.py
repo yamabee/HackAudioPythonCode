@@ -11,10 +11,10 @@ import matplotlib.pyplot as plt
 
 x, Fs = soundfile.read('AcGtr.wav')
 
-gFast = 0.9991 # Gain smoothing for the 'fast' envelope
-fbFast = 0 # Feedback for the 'fast' envelope
-gSlow = 0.9999 # Gain smoothing for the 'slow' envelope
-fbSlow = 0 # Feedback for the 'slow' envelope
+gFast = 0.9991  # Gain smoothing for the 'fast' envelope
+fbFast = 0  # Feedback for the 'fast' envelope
+gSlow = 0.9999  # Gain smoothing for the 'slow' envelope
+fbSlow = 0  # Feedback for the 'slow' envelope
 
 N = len(x)
 envFast = np.zeros(N)
@@ -50,11 +50,11 @@ for n in range(N):
         sustain[n] = transientShaper[n] + 1
 
 plt.figure(2)
-plt.subplot(2,1,1) # Plot the detected attack envelope
+plt.subplot(2, 1, 1)  # Plot the detected attack envelope
 plt.plot(attack)
 plt.title('Attack Envelope')
 plt.axis([1, N, 0.5, 1.5])
-plt.subplot(2,1,2)
+plt.subplot(2, 1, 2)
 plt.plot(sustain)
 plt.title('Sustain Envelope')
 plt.axis([1, N, 0.5, 1.5])

@@ -15,6 +15,7 @@
 import numpy as np
 from scipy import signal
 
+
 def barberpoleFlanger(x, buffer, Fs, n, depth, rate, predelay, wet):
     # Calculate time in seconds for the current sample
     t = n/Fs

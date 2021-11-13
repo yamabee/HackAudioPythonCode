@@ -12,6 +12,7 @@
 import numpy as np
 from scipy import signal
 
+
 def crossfades(Fs, length, Hz, fade):
     period = Fs/Hz
     win = signal.windows.hann(fade*2)
@@ -26,7 +27,7 @@ def crossfades(Fs, length, Hz, fade):
             g1[n] = 1
             g2[n] = 0
             c = 0
-        elif t < period/2: #+ fade/2 # first fade
+        elif t < period/2: #+ fade/2  # first fade
             g1[n] = pow(win[fade+c], 0.5)
             g2[n] = pow(win[c], 0.5)
             c = c + 1

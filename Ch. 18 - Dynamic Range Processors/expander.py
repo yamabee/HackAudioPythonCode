@@ -13,6 +13,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
+
 def expander(x, Fs, T, R, attackTime, releaseTime):
     N = len(x)
     y = np.zeros(N)
@@ -22,7 +23,7 @@ def expander(x, Fs, T, R, attackTime, releaseTime):
     alphaA = np.exp(-np.log(9)/(Fs * attackTime))
     alphaR = np.exp(-np.log(9)/(Fs * releaseTime))
 
-    gainSmoothPrev = -144 # Initialize smoothing variable
+    gainSmoothPrev = -144  # Initialize smoothing variable
 
     # Loop over each sample to see if it is below threshold
     for n in range(N):
@@ -36,10 +37,10 @@ def expander(x, Fs, T, R, attackTime, releaseTime):
 
         # Static characteristics
         if x_dB > T:
-            gainSC = x_dB # Do not perform compression
+            gainSC = x_dB  # Do not perform compression
         else:
             # Expander calculation
-            gainSC = T + (x_dB - T) * R # Perform downwards expansion
+            gainSC = T + (x_dB - T) * R  # Perform downwards expansion
 
             # Gating (use instead of expander)
             #gainSC = -144
@@ -66,11 +67,11 @@ def expander(x, Fs, T, R, attackTime, releaseTime):
 
     t = np.arange(0, N)/Fs
 
-    plt.subplot(2,1,1)
-    plt.plot(t,x)
+    plt.subplot(2, 1, 1)
+    plt.plot(t, x)
     plt.title('Input Signal')
     plt.axis([0, t[-1], -1.1, 1.1])
-    plt.subplot(2,1,2)
+    plt.subplot(2, 1, 2)
     plt.plot(t, y, t, lin_A)
     plt.title('Output')
     plt.axis([0, t[-1], -1.1, 1.1])

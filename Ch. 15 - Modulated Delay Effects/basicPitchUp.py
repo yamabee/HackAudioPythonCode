@@ -14,11 +14,11 @@ t = np.arange(0, Fs) * Ts
 f = 1
 x = np.sin(2 * np.pi * f * t)
 
-d = Fs                  # Initial delay time
+d = Fs                   # Initial delay time
 
-N = len(x)              # Number of samples
-y = np.zeros(N)         # Initialize output signal
-buffer = np.zeros(Fs+1) # Delay buffer
+N = len(x)               # Number of samples
+y = np.zeros(N)          # Initialize output signal
+buffer = np.zeros(Fs+1)  # Delay buffer
 
 for n in range(N):
     intDelay = int(np.floor(d))
@@ -36,8 +36,8 @@ for n in range(N):
     # Decrease the delay time by 1 sample
     d = d - 1
 
-plt.plot(t,x)
-plt.plot(t,y)
+plt.plot(t, x)
+plt.plot(t, y)
 plt.xlabel('Time (sec.)')
 plt.ylabel('Amplitude')
 plt.legend(['Input', 'Output'])

@@ -25,15 +25,15 @@ numBands = 16
 # 2*10^1 - 2*10^4 (20-20k) Hz
 freq = 2 * np.logspace(1,4,numBands)
 
-g = 0.9992 # Smoothing filter gain
-fb = 0 # Initialize feedback delay
+g = 0.9992  # Smoothing filter gain
+fb = 0  # Initialize feedback delay
 
 voxBands = np.zeros((N, numBands))
 noiseBands = np.zeros((N, numBands))
 envBands = np.zeros((N, numBands))
 
 for band in range(numBands-1):
-    Wn = np.append(freq[band ], freq[band+1])
+    Wn = np.append(freq[band], freq[band+1])
     Wn = Wn / Nyq
     b, a = signal.butter(order, Wn=Wn, btype='bandpass')
 

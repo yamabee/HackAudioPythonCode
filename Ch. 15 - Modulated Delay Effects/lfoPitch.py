@@ -28,15 +28,15 @@ Ts = 1/Fs
 
 semitones = 3
 tr = pow(2, semitones/12)
-dRate = 1 - tr          # Delay rate of change
+dRate = 1 - tr  # Delay rate of change
 
-maxDelay = int(Fs * 0.05)    # Maximum delay is 50ms
+maxDelay = int(Fs * 0.05)  # Maximum delay is 50ms
 
 # Conditional to handle pitch up and pitch down
-if dRate > 0:   # Pitch decrease
+if dRate > 0:  # Pitch decrease
     d = 0
 
-else:           # Pitch increase
+else:  # Pitch increase
     # Initialize delay so it is always positive
     d = maxDelay
 
@@ -47,12 +47,12 @@ buffer = np.zeros(maxDelay)
 
 for n in range(N):
     # Determine output of delay buffer
-    # which could be a fractional delay time
+    # which could be a fractional delay time.
     intDelay = int(np.floor(d)) - 1
     frac = d - intDelay
 
     if intDelay == 0:   # When delay time = zero
-                        # 'out' comes 'in', not just delay buffer
+                        # 'out' comes 'in', not just delay buffer.
         out[n] = (1-frac) * x[n] + frac * buffer[0]
 
     else:
@@ -63,7 +63,7 @@ for n in range(N):
 
     # Store the current delay in signal for plotting
     lfo[n] = d
-    d = d + dRate # Change the delay time for the next loop
+    d = d + dRate  # Change the delay time for the next loop
 
     # If necessary, start a new cycle in LFO
     if d < 0:
@@ -74,15 +74,15 @@ for n in range(N):
 t = np.arange(0, N) * Ts
 
 plt.subplot(3, 1, 1)
-plt.plot(t, lfo) # Crossfade gains
+plt.plot(t, lfo)  # Crossfade gains
 plt.ylabel('Delay (Samples)')
 plt.tight_layout()
 
 # Spectrogram
 plt.subplot(3,1,2)
-nfft = 2048 # length of each time frame
-window = signal.windows.hann(nfft) # calculated windowing function
-overlap = 128 # number of samples for frame overlap
+nfft = 2048  # length of each time frame
+window = signal.windows.hann(nfft)  # calculated windowing function
+overlap = 128  # number of samples for frame overlap
 spec, f, tSpec, imAxis = plt.specgram(out, nfft, Fs, window=window, noverlap=overlap)
 plt.axis('tight')
 plt.axis('auto')
@@ -93,7 +93,7 @@ plt.show()
 plt.figure()
 tau = (maxDelay/dRate) * Ts
 f = 1/tau
-plt.plot(t, lfo, t, maxDelay * (0.5 * signal.sawtooth(2 * np.pi * f * t)+ 0.5), 'r--')
+plt.plot(t, lfo, t, maxDelay * (0.5 * signal.sawtooth(2 * np.pi * f * t) + 0.5), 'r--')
 plt.tight_layout()
 plt.show()
 

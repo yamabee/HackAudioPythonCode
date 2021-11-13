@@ -18,6 +18,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
+
 def goniometer(input):
     input = np.transpose(input)
     N = len(input)
@@ -30,7 +31,7 @@ def goniometer(input):
 
         radius = np.sqrt(pow(L, 2) + pow(R, 2))
         angle = np.arctan2(L, R)
-        angle = angle + (np.pi/4) #  Rotate by convention
+        angle = angle + (np.pi/4)  # Rotate by convention
 
         x[n] = radius * np.cos(angle)
         y[n] = radius * np.sin(angle)
@@ -74,3 +75,5 @@ def goniometer(input):
     plt.plot(x, y, '.r')
     plt.axis([-1, 1, -1, 1])
     plt.show()
+
+    return

@@ -22,23 +22,23 @@ x = np.sin(2 * np.pi * f * t)
 panCenter = [0.707 * x, 0.707 * x]
 # must convert tuple to list
 panCenter = list(panCenter)
-plt.subplot(2,2,1)
+plt.subplot(2, 2, 1)
 goniometer(panCenter)
 
 # Left
 panLeft = [x, np.zeros(np.size(x))]
 panLeft = list(panLeft)
-plt.subplot(2,2,2)
+plt.subplot(2, 2, 2)
 goniometer(panLeft)
 
 # Right
 panRight = [np.zeros(np.size(x)), x]
 panRight = list(panRight)
-plt.subplot(2,2,3)
+plt.subplot(2, 2, 3)
 goniometer(panRight)
 
 # Opposite polarities
 polarity = [0.707 * x, 0.707 * (-x)]
 polarity = list(polarity)
-plt.subplot(2,2,4)
+plt.subplot(2, 2, 4)
 goniometer(polarity)

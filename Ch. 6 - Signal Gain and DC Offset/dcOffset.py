@@ -1,21 +1,19 @@
-import numpy as np
-import matplotlib as plt
-import soundfile
-
 # DCOFFSET
 # This script demonstrates a method to perform element-wise
 # scalar addition, the equivalent of a DC offset
-#
-# NOT WORKING
+
+import numpy as np
+import matplotlib.pyplot as plt
+import soundfile
 
 # Example - Sine wave signal
-[x, Fs] = soundfile.read('sw20.wav') # import sound file
+[x, Fs] = soundfile.read('sw20.wav')  # import sound file
 Ts = 1/Fs
 # Assign input to out1, for comparison purposes
 out1 = x
 
 N = len(x)
-out2 = np.zeros(N) # Initialize output array
+out2 = np.zeros(N)  # Initialize output array
 
 # Loop through arrays to perform element-wise scalar addition
 for n in range(N):
@@ -25,7 +23,7 @@ for n in range(N):
 # scalar directly to an array.
 out3 = x - 0.5
 
-plt.figure(1) # Create new figure window
+plt.figure(1)  # Create new figure window
 # Plot the output amplitude vs. time
 t = np.arange(0, N) * Ts
 plt.plot(t, out1, t, out2, t, out3)

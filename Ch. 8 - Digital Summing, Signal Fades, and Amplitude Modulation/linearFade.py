@@ -19,10 +19,10 @@ plt.figure(1)
 plt.plot(t, x)
 plt.show()
 
-numSamples = 1 * Fs # 1 second fade-in/out
+numSamples = 1 * Fs  # 1 second fade-in/out
 a = np.linspace(0, 1, numSamples)
 fadeIn = a
-fadeOut = 1-a # Equivalent = np.linspace(1, 0, numSamples)
+fadeOut = 1-a  # Equivalent = np.linspace(1, 0, numSamples)
 plt.figure(2)
 plt.plot(a, fadeIn, a, fadeOut)
 plt.legend(['Fade-in', 'Fade-out'])

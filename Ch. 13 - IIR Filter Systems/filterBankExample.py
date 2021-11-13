@@ -10,7 +10,7 @@ from scipy import signal
 Fs = 48000
 Nyq = Fs/2
 
-m = 2 # filter order
+m = 2  # filter order
 numBands = 4
 
 # Logarithmically spaced cutoff frequencies
@@ -29,7 +29,6 @@ for band in range(numBands):
 
     W, H = signal.freqz(b[band, :], a[band, :], worN=4096, fs=Fs)
     plt.semilogx(W, 20*np.log10(abs(H)))
-
 
 plt.axis([20, 20000, -24, 6])
 plt.xlabel('Frequency (Hz)')

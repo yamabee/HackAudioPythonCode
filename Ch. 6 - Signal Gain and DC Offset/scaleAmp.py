@@ -6,11 +6,11 @@
 
 import soundfile
 import numpy as np
-import matplotlib as plt
+import matplotlib.pyplot as plt
 
 # Import input signal
 filename = 'sw20.wav'
-[x, Fs] = soundfile.read(filename) # input signal
+[x, Fs] = soundfile.read(filename)  # input signal
 
 Ts = 1/Fs
 N = len(x)
@@ -18,7 +18,7 @@ N = len(x)
 t = np.arange(0, N) * Ts
 
 # Example 1 - loop
-g1 = 0.5 # Gain Scalar
+g1 = 0.5  # Gain Scalar
 y1 = np.zeros(N)
 
 # n - variable for sample number

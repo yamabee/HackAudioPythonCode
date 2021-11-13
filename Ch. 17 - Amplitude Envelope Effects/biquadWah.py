@@ -15,21 +15,22 @@
 
 import numpy as np
 
+
 def biquadWah(x, Fs, lfo, Q, ff, fb, wet):
     # Convert value of LFO to normalized frequency
     w0 = 2 * np.pi * lfo / Fs
     # Normalize bandwidth
-    alpha = np.sin(w0)/ (2 * Q)
+    alpha = np.sin(w0) / (2 * Q)
 
     b0 = (1 - np.cos(w0)) / 2
-    b1 = 1 -  np.cos(w0)
+    b1 = 1 - np.cos(w0)
     b2 = (1 - np.cos(w0)) / 2
     a0 = 1 + alpha
     a1 = -2 * np.cos(w0)
     a2 = 1 - alpha
 
     # Wet/dry mix
-    mixPercent = wet # 0 - only dry, 100 - only wet
+    mixPercent = wet  # 0 - only dry, 100 - only wet
     mix = mixPercent/100
 
     drySig = x

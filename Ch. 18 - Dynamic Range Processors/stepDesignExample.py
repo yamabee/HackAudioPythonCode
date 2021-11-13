@@ -13,12 +13,12 @@ from stepDesign import stepDesign
 Fs = 48000
 
 # Example - filter design based on settling time
-OS = 20 # Percent overshoot
+OS = 20  # Percent overshoot
 # Settling time in seconds
-ts = 0.25 # (within 2% of steady-state)
+ts = 0.25  # (within 2% of steady-state)
 
 b, a = stepDesign(Fs, OS, ts, 'st')
-n = 1 * Fs # number of seconds for step response
+n = 1 * Fs  # number of seconds for step response
 inst = signal.dlti(b, a, dt=1/Fs)
 t, h = signal.dstep(inst, n=n)
 plt.plot(t, np.squeeze(h))
@@ -26,10 +26,10 @@ plt.plot(t, np.squeeze(h))
 plt.figure()
 
 # Example - filter designed based on peak time
-OS = 10 # Percent overshoot
-tp = 0.75 # Peak time in seconds
+OS = 10  # Percent overshoot
+tp = 0.75  # Peak time in seconds
 b, a = stepDesign(Fs, OS, tp, 'pk')
-n = 2 * Fs # number of seconds for step response
+n = 2 * Fs  # number of seconds for step response
 inst = signal.dlti(b, a, dt=1/Fs)
 t, h = signal.dstep(inst, n=n)
 plt.plot(t, np.squeeze(h))

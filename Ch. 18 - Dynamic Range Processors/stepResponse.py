@@ -6,9 +6,9 @@ import numpy as np
 import matplotlib.pyplot as plt
 from scipy import signal
 
-Fs = 48000 # Initialize the sampling rate
-sec = 1 # Time length in seconds
-n = sec * Fs # Convert second to number or samples
+Fs = 48000  # Initialize the sampling rate
+sec = 1  # Time length in seconds
+n = sec * Fs  # Convert second to number or samples
 
 # Define different gain values to test
 gains = [0.9990, 0.9995, 0.9997, 0.9999]

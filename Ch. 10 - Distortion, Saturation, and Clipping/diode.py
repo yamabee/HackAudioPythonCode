@@ -6,11 +6,12 @@
 
 import numpy as np
 
+
 def diode(x):
     # Diode Characteristics
-    Vt = 0.0253 # thermal voltage
-    eta = 1.68 # emission coefficient
-    Is = 0.105 # saturation current
+    Vt = 0.0253  # thermal voltage
+    eta = 1.68  # emission coefficient
+    Is = 0.105  # saturation current
 
     N = len(x)
     y = np.zeros([N, 1])

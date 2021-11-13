@@ -11,7 +11,7 @@ from scipy import signal
 # Initial parameters
 Fs = 48000
 Ts = 1/Fs
-f = 1 # 1 Hz LFO
+f = 1  # 1 Hz LFO
 numSec = 1
 numSamples = Fs * numSec
 t = np.arange(0, numSamples) * Ts

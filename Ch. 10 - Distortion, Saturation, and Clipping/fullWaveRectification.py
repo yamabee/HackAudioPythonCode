@@ -7,6 +7,7 @@
 
 import numpy as np
 
+
 def fullWaveRectification(x):
     N = len(x)
     y = np.zeros([N, 1])

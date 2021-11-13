@@ -16,11 +16,11 @@ N = len(x)
 
 # Initialize feedforward delay buffer
 # (stores 2 previous samples of input)
-ff = np.append(0, 0) # ff[n] = n samples of delay
+ff = np.append(0, 0)  # ff[n] = n samples of delay
 
 # Initialize feedback delay buffer
 # (stores 2 previous samples of output)
-fb = np.append(0, 0) # fb[n] = n samples of delay
+fb = np.append(0, 0)  # fb[n] = n samples of delay
 
 # Bandwidth of resonant LPF
 Q = 4
@@ -53,11 +53,11 @@ for n in range(N):
     cutoff[n] = freq
 
 t = np.arange(0, N) * Ts
-plt.subplot(2,1,1)
+plt.subplot(2, 1, 1)
 plt.plot(t, y)
 plt.xlabel('Time (sec.)')
 plt.ylabel('Amplitude')
-plt.subplot(2,1,2)
+plt.subplot(2, 1, 2)
 plt.plot(t, cutoff)
 plt.xlabel('Time (sec.)')
 plt.ylabel('Cutoff Freq. (Hz)')

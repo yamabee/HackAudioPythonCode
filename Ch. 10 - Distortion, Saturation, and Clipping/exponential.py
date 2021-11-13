@@ -11,10 +11,12 @@
 
 import numpy as np
 
+
 def exponential(x, drive):
     N = len(x)
     y = np.zeros([N, 1])
 
     for n in range(N):
         y[n] = np.sign(x[n]) * (1 - np.exp(-np.abs(drive * x[n])))
+
     return y

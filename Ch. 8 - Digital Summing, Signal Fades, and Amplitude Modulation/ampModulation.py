@@ -20,13 +20,13 @@ plt.xlabel('Time (sec)')
 plt.figure()
 
 # Tremolo parameters
-depth = 100 # [0,100]
+depth = 100  # [0, 100]
 speed = 5
 amp = 0.5 * (depth / 100)
 offset = 1 - amp
 
 # Synthesize modulation signal
-f = speed # speed of effect
+f = speed  # speed of effect
 phi = 0
 sw = np.sin(2 * np.pi * f * t + phi)
 
@@ -48,4 +48,5 @@ plt.figure()
 plt.plot(t[0:44100], output[0:44100])
 plt.title('Output Signal (Processed)')
 plt.show()
+
 Audio(output, rate=Fs)

@@ -5,13 +5,13 @@
 
 import numpy as np
 
-x = np.append(1, np.zeros(9)) # Horizontal for displaying in command window
+x = np.append(1, np.zeros(9))  # Horizontal for displaying in command window
 
-fracDelay = 3.2 # Fractional delay length in samples
-intDelay = int(np.floor(fracDelay)) # Round down to get the previous (3)
-frac = fracDelay - intDelay # Find the fractional amount (0.2)
+fracDelay = 3.2  # Fractional delay length in samples
+intDelay = int(np.floor(fracDelay))  # Round down to get the previous (3)
+frac = fracDelay - intDelay  # Find the fractional amount (0.2)
 
-buffer = np.zeros(5) # len(buffer) >= ceil(fracDelay)
+buffer = np.zeros(5)  # len(buffer) >= ceil(fracDelay)
 N = len(x)
 
 out = np.zeros(N)

@@ -16,6 +16,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
+
 def compressor(x, Fs, T, R, attackTime, releaseTime):
     N = len(x)
     y = np.zeros(N)
@@ -25,7 +26,7 @@ def compressor(x, Fs, T, R, attackTime, releaseTime):
     alphaA = np.exp(-np.log(9)/(Fs * attackTime))
     alphaR = np.exp(-np.log(9)/(Fs * releaseTime))
 
-    gainSmoothPrev = 0 # Initialize smoothing variable
+    gainSmoothPrev = 0  # Initialize smoothing variable
 
     # Loop over each sample to see if it is above thresh
     for n in range(N):
@@ -38,9 +39,9 @@ def compressor(x, Fs, T, R, attackTime, releaseTime):
 
         # Static characteristics
         if x_dB > T:
-            gainSC = T + (x_dB - T)/R # Perform downwards compression
+            gainSC = T + (x_dB - T)/R  # Perform downwards compression
         else:
-            gainSC = x_dB # Do not perform compression
+            gainSC = x_dB  # Do not perform compression
 
         gainChange_dB = gainSC - x_dB
 
@@ -64,12 +65,12 @@ def compressor(x, Fs, T, R, attackTime, releaseTime):
 
     # Uncomment for visualization
     t = np.arange(0, N)/Fs
-    plt.subplot(2,1,1)
-    plt.plot(t,x)
+    plt.subplot(2, 1, 1)
+    plt.plot(t, x)
     plt.title('Input')
     plt.axis([0, t[-1], -1.1, 1.1])
-    plt.subplot(2,1,2)
-    plt.plot(t,y,t,lin_A)
+    plt.subplot(2, 1, 2)
+    plt.plot(t, y, t, lin_A)
     plt.title('Output')
     plt.axis([0, t[-1], -1.1, 1.1])
     plt.legend(['Output Signal', 'Gain Reduction'])

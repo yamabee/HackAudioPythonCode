@@ -24,12 +24,12 @@ t = np.arange(0, lenSamples) * Ts
 maxDelay = 50 + 1
 buffer = np.zeros(maxDelay)
 
-rate = 0.5 # Hz (frequency of LFO)
-depth = 6 # samples (amplitude of LFO)
-predelay = 12 # samples (offset of LFO)
+rate = 0.5  # Hz (frequency of LFO)
+depth = 6  # samples (amplitude of LFO)
+predelay = 12  # samples (offset of LFO)
 
 # Wet/dry mix
-wet = 50 # 0 = only dry, 100 = only wet
+wet = 50  # 0 = only dry, 100 = only wet
 
 # Initialize output signal
 N = len(x)
@@ -47,9 +47,9 @@ plt.ylabel('Delay')
 plt.show()
 
 # Spectrogram
-nfft = 2048 # Length of each time frame
-window = np.hanning(nfft) # Calculated windowing function
-overlap = 128 # Number of samples for frame overlap
+nfft = 2048  # Length of each time frame
+window = np.hanning(nfft)  # Calculated windowing function
+overlap = 128  # Number of samples for frame overlap
 spec, f, t, imAxis = plt.specgram(out, nfft, Fs, window=window, noverlap=overlap)
 plt.axis('tight')
 plt.axis('auto')

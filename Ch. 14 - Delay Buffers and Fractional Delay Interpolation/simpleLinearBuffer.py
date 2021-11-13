@@ -23,14 +23,14 @@ N = np.size(x)
 out = np.zeros([N])
 
 for n in range(N):
-    # Read the output at the curretn time sample
+    # Read the output at the current time sample
     # from the end of the delay buffer
     out[n] = buffer[-1]
     np.disp(['For sample ', str(n), ' the output is: ', str(out[n])])
 
     # Shift each value in the buffer by one element
     # to make room for the current sample to be stored
-    # in the first element
+    # in the first element.
     buffer = np.append(x[n], buffer[0:-1])
     # buffer[0, 1:] = buffer[0, 0:-1]
     # buffer[0, 0] = x[0, n]

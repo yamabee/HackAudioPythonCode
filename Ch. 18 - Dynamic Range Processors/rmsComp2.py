@@ -62,14 +62,13 @@ for n in range(N):
     # Update gainSmoothPrev used in the next sample of the loop
     gainSmoothPrev = gainSmooth
 
-
 t = np.arange(0, N)/Fs
 
-plt.subplot(2,1,1)
+plt.subplot(2, 1, 1)
 plt.plot(t,x)
 plt.title('Input Signal')
 plt.axis([0, t[-1], -1.1, 1.1])
-plt.subplot(2,1,2)
+plt.subplot(2, 1, 2)
 plt.plot(t, y, t, lin_A)
 plt.title('Output')
 plt.axis([0, t[-1], -1.1, 1.1])

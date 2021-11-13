@@ -12,8 +12,9 @@ import numpy as np
 import matplotlib.pyplot as plt
 from scipy import signal
 
+
 def stepDesign(Fs, OS, T, characteristic):
-    if OS < 0.00001: # Ensure a minimum value of overshoot
+    if OS < 0.00001:  # Ensure a minimum value of overshoot
         OS = 0.00001
 
     # Convert percent overshoot to damping

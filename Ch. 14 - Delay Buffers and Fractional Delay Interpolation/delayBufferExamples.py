@@ -7,10 +7,10 @@
 import numpy as np
 
 x = np.append(np.array([1, -1, 2, -2]), np.zeros([6]))
-buffer = np.zeros([20]) # longer buffer than delay length
+buffer = np.zeros([20])  # longer buffer than delay length
 
 # Number of samples of delay
-delay = 5 # does not need to be same length as buffer
+delay = 5  # does not need to be same length as buffer
 
 N = np.size(x)
 out = np.zeros([N])
@@ -32,7 +32,7 @@ np.disp(['The final output signal is: ', str(out)])
 # Feedforward (FIR) system
 out = np.zeros([N])
 buffer = np.zeros([20])
-delay = 3 # Number of samples of delay
+delay = 3  # Number of samples of delay
 
 # Parallel delay line
 for n in range(N):

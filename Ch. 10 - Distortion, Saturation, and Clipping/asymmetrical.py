@@ -10,9 +10,10 @@
 
 import numpy as np
 
+
 def asymmetrical(x, dc):
     N = len(x)
-    xOffset = x + dc # introduce DC offset
+    xOffset = x + dc  # introduce DC offset
     yOffset = np.zeros([N, 1])
 
     for n in range(N):
@@ -23,6 +24,6 @@ def asymmetrical(x, dc):
         # Nonlinear distortion function
         yOffset[n] = xOffset[n] - (1/5) * pow(xOffset[n], 5)
 
-    y = yOffset - dc # remove DC offset
+    y = yOffset - dc  # remove DC offset
 
     return y

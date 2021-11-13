@@ -16,8 +16,8 @@ Ts = 1/Fs
 t = np.arange(0, N) * Ts
 
 # Splitting signal into right and left channels
-L = x[:,0]
-R = x[:,1]
+L = x[:, 0]
+R = x[:, 1]
 
 # Create mid and side channels
 side = 0.5 * (L - R)

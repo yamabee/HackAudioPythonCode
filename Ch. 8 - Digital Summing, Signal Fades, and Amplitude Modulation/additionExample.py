@@ -46,7 +46,7 @@ Fs = 100
 Ts = 1/Fs
 t = np.arange(0, Fs) * Ts
 sw1 = a * np.sin((2 * np.pi * f * t) + phi)
-sw2 = a * np.sin((2 * np.pi * (f*2) * t) + phi) # Change frequency x2
+sw2 = a * np.sin((2 * np.pi * (f*2) * t) + phi)  # Change frequency x2
 
 sw3 = sw1 + sw2
 

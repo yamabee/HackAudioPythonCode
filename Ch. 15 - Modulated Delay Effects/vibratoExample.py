@@ -16,13 +16,13 @@ Ts = 1/Fs
 N = len(x)
 
 # Initialize the delay buffer
-maxDelay = 1000 # Samples
+maxDelay = 1000  # Samples
 buffer = np.zeros([maxDelay])
 
 # LFO parameters
 t = np.arange(0, N) * Ts
-rate = 4 # Frequency of LFO in Hz
-depth = 75 # Range of samples of delay
+rate = 4  # Frequency of LFO in Hz
+depth = 75  # Range of samples of delay
 
 # Initialize output signal
 out = np.zeros([N])

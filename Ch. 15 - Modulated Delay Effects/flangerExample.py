@@ -15,16 +15,16 @@ Fs = 48000
 Ts = 1/Fs
 sec = 5
 lenSamples = sec*Fs
-x = 0.2 * np.random.randn(lenSamples) # White noise input
+x = 0.2 * np.random.randn(lenSamples)  # White noise input
 
 # Create delay buffer to hold maximum possible delay samples
 maxDelay = 50 + 1
 buffer = np.zeros(maxDelay)
 
-rate = 0.2 # Hz (frequency of LFO)
-depth = 4 # Samples (amplitude of LFO)
-predelay = 5 # Samples (offset of LFO)
-wet = 50 # Wet/dry mix
+rate = 0.2  # Hz (frequency of LFO)
+depth = 4  # Samples (amplitude of LFO)
+predelay = 5  # Samples (offset of LFO)
+wet = 50  # Wet/dry mix
 
 # Initialize output signal
 N = len(x)
@@ -39,7 +39,7 @@ for n in range(N):
 
 # Spectrogram
 nfft = 2048
-window = np.hanning(nfft) # or signal.windows.hann(nfft)
+window = np.hanning(nfft)  # or signal.windows.hann(nfft)
 overlap = 128
 spec, f, t, imAxis = plt.specgram(out, nfft, Fs, window=window, noverlap=overlap)
 plt.axis('tight')

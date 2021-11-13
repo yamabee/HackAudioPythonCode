@@ -9,6 +9,7 @@
 
 import numpy as np
 
+
 def pan(x, panValue, panType):
     # Convert pan value to a normalized scale
     panTransform = (panValue/200) + 0.5

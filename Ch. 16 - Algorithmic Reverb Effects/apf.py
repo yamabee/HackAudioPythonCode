@@ -12,6 +12,7 @@
 
 import numpy as np
 
+
 def apf(x, buffer, Fs, n, delay, gain, amp, rate):
     # Calculate time in seconds for the current sample
     t = n/Fs
@@ -21,9 +22,9 @@ def apf(x, buffer, Fs, n, delay, gain, amp, rate):
 
     # Determine indexes for circular buffer
     M = len(buffer)
-    indexC = int(np.mod(n, M)) # Current index
-    indexD = int(np.mod((n-delay+intDelay), M)) # Delay index
-    indexF = int(np.mod((n-delay+intDelay+1), M)) # Fractional index
+    indexC = int(np.mod(n, M))  # Current index
+    indexD = int(np.mod((n-delay+intDelay), M))  # Delay index
+    indexF = int(np.mod((n-delay+intDelay+1), M))  # Fractional index
 
     # Temp variable for output of delay buffer
     w = (1 - frac) * buffer[indexD] + frac * buffer[indexF]

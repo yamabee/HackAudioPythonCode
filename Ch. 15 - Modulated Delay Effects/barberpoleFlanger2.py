@@ -19,6 +19,7 @@
 import numpy as np
 from scipy import signal
 
+
 def barberpoleFlanger2(x, buffer, Fs, n, depth, rate, predelay, wet, g1, g2):
     # Calculate time in seconds for the current sample
     t = n/Fs
@@ -36,7 +37,7 @@ def barberpoleFlanger2(x, buffer, Fs, n, depth, rate, predelay, wet, g1, g2):
     lfo2 = lfo2 + predelay - 2
 
     # Wet/dry mix
-    mixPercent = wet # 0 = only dry, 100 = only wet
+    mixPercent = wet  # 0 = only dry, 100 = only wet
     mix = mixPercent/100
 
     fracDelay1 = lfo1

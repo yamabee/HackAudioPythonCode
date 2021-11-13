@@ -41,7 +41,7 @@ Fs = 100
 Ts = 1/Fs
 t = np.arange(0, Fs) * Ts
 sw1 = a * np.sin((2 * np.pi * f * t) + phi)
-sw2 = a * np.sin((2 * np.pi * f * t) + np.pi) # Phase offset by 180 degrees
+sw2 = a * np.sin((2 * np.pi * f * t) + np.pi)  # Phase offset by 180 degrees
 sw3 = sw1 + sw2
 
 plt.plot(t, sw1, '--', t, sw2, ':', t, sw3)

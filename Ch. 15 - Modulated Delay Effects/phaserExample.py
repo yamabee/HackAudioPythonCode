@@ -19,11 +19,11 @@ lenSamples = sec * Fs
 x = 0.2 * np.random.randn(lenSamples)
 N = len(x)
 
-rate = 0.8 # Hz (frequency of LFO)
-depth = 0.3 # samples (amplitude of LFO)
+rate = 0.8  # Hz (frequency of LFO)
+depth = 0.3  # samples (amplitude of LFO)
 
 # Initialize delay buffers
-buffer = np.zeros(3) # All-pass filter
+buffer = np.zeros(3)  # All-pass filter
 
 # Wet/dry mix
 wet = 50

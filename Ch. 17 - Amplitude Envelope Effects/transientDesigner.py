@@ -12,12 +12,13 @@
 
 import numpy as np
 
+
 def transientDesigner(x, attack, sustain):
     N = len(x)
     # Initialize filtering parameters
-    gFast = 0.9991 # Feedback gain for the 'fast' envelope
-    fbFast = 0 # Variable used to store previous envelope value
-    gSlow = 0.9999 # Feedback gain for 'slow' envelope
+    gFast = 0.9991  # Feedback gain for the 'fast' envelope
+    fbFast = 0  # Variable used to store previous envelope value
+    gSlow = 0.9999  # Feedback gain for 'slow' envelope
     fbSlow = 0
 
     envFast = np.zeros(N)
@@ -44,11 +45,11 @@ def transientDesigner(x, attack, sustain):
 
     # Separate attack and sustain envelopes
     for n in range(N):
-        if differenceEnv[n] > 0: # 'Attack' section
+        if differenceEnv[n] > 0:  # 'Attack' section
             attEnv[n] = (attack * differenceEnv[n]) + 1
-            susEnv[n] = 1 # No change
+            susEnv[n] = 1  # No change
         else:
-            attEnv[n] = 1 # No change
+            attEnv[n] = 1  # No change
             susEnv[n] = (sustain * -differenceEnv[n]) + 1
 
     # Apply the attack and sustain envelopes

@@ -23,7 +23,7 @@ Ts = 1/Fs
 f = 2
 t = np.arange(0, Fs * 1) * Ts
 
-x = np.sin(2 * np.pi * f * t) # used as input signal for each distortion
+x = np.sin(2 * np.pi * f * t)  # used as input signal for each distortion
 
 # # Infinite clipping
 # y = infiniteClip(x)
@@ -74,14 +74,14 @@ y = bitReduction(x + dither, nBits)
 
 # Plotting
 plt.figure(1)
-plt.subplot(1,2,1) # Waveform
+plt.subplot(1, 2, 1)  # Waveform
 plt.plot(t, x, t, y)
 plt.axis([0, 1, -1.1, 1.1])
 plt.xlabel('Time (sec.)')
 plt.ylabel('Amplitude')
 plt.title('Waveform')
 
-plt.subplot(1,2,2) # Characteristic Curve
+plt.subplot(1, 2, 2)  # Characteristic Curve
 plt.plot(x, x, x, y)
 plt.axis([-1, 1, -1.1, 1.1])
 plt.xlabel('Input Amplitude')

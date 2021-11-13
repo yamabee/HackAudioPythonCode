@@ -15,16 +15,16 @@ x = np.append(np.zeros(Fs), np.ones(Fs))
 N = len(x)
 
 # Initialize gain value
-alpha = 0.9995 # Also try values between 0.999-0.9999
-q = 0 # Initialize feedback variable
+alpha = 0.9995  # Also try values between 0.999-0.9999
+q = 0  # Initialize feedback variable
 
 y = np.zeros(N)
 
 for n in range(N):
     y[n] = (1 - alpha) * x[n] + alpha * q
-    q = y[n] # Stores the 'previous' value for the next loop cycle
+    q = y[n]  # Stores the 'previous' value for the next loop cycle
 
-t = np.arange(0, N) * Ts # time vector for plot
+t = np.arange(0, N) * Ts  # time vector for plot
 plt.plot(t, x, t, y)
 plt.axis([0, 2, -0.1, 1.1])
 plt.xlabel('Time (sec.)')

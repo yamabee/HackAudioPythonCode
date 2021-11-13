@@ -14,7 +14,7 @@ x = np.append(1, np.zeros(4096))
 
 # Filter parameters
 Fs = 48000
-f = 1000 # frequency in Hz
+f = 1000  # frequency in Hz
 Q = 0.707
 dBGain = -6
 

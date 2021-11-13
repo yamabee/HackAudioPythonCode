@@ -8,13 +8,12 @@ import matplotlib.pyplot as plt
 Fs = 44100
 
 # Square-root fades
-x = 2 # can be any number >= 2
-numSamples = 1 * Fs # 1 second fade-in/out
+x = 2  # can be any number >= 2
+numSamples = 1 * Fs  # 1 second fade-in/out
 aIn = np.linspace(0, 1, numSamples)
 fadeIn = pow(aIn, 1/x)
 
 aOut = np.linspace(1, 0, numSamples)
-aOut = aOut.T
 fadeOut = pow(aOut, 1/x)
 
 # Compare amplitude vs. power of crossfade

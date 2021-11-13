@@ -13,6 +13,7 @@
 
 import numpy as np
 
+
 def vibratoEffect(x, buffer, Fs, n, depth, rate):
     # Calculate lfo for current sample
     t = n/Fs
@@ -20,13 +21,13 @@ def vibratoEffect(x, buffer, Fs, n, depth, rate):
 
     # Determine indexes for circular buffer
     N = len(buffer)
-    indexC = np.mod(n, N) # Current index in circular buffer
+    indexC = np.mod(n, N)  # Current index in circular buffer
 
-    fracDelay = np.mod(n-lfo, N) # Delay index in circular buffer
-    intDelay = int(np.floor(fracDelay)) # Fractional delay indices
+    fracDelay = np.mod(n-lfo, N)  # Delay index in circular buffer
+    intDelay = int(np.floor(fracDelay))  # Fractional delay indices
     frac = fracDelay - intDelay
 
-    nextSamp = np.mod(intDelay, N) - 1 # Next index in circular buffer
+    nextSamp = np.mod(intDelay, N) - 1  # Next index in circular buffer
 
     out = (1-frac) * buffer[intDelay-1] + frac * buffer[nextSamp]
 

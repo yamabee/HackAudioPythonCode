@@ -10,6 +10,7 @@
 
 import numpy as np
 
+
 def hardClipping(x, thresh):
     N = len(x)
     y = np.zeros([N, 1])

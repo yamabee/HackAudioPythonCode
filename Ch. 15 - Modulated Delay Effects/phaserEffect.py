@@ -13,6 +13,7 @@
 
 import numpy as np
 
+
 def phaserEffect(x, buffer, Fs, n, depth, rate, wet):
     # Calculate time in seconds for the current sample
     t = n / Fs

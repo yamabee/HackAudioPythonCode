@@ -57,7 +57,7 @@ for band in range(numBands-1): # perform processing 1 band per loop
 outBands = np.zeros((len(x), numBands))
 for band in range(numBands):
     # Apply the envelope of the vocal signal to the synthesizer
-    # in each of the bands
+    # in each of the bands.
     outBands[:, band] = envBands[:, band] * synthBands[:, band]
 
 # Sum together all the bands

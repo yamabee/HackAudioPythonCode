@@ -8,6 +8,7 @@
 
 import numpy as np
 
+
 def infiniteClip(x):
     N = len(x)
     y = np.zeros([N, 1])

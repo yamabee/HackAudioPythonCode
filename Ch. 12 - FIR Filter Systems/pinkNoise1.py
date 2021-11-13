@@ -10,12 +10,12 @@ import numpy as np
 import matplotlib.pyplot as plt
 from scipy import signal
 
-Fs = 48000 # Sampling rate
-Nyq = Fs/2 # Nyquist frequency for normalization
-sec = 5 # 5 seconds of noise
+Fs = 48000  # Sampling rate
+Nyq = Fs/2  # Nyquist frequency for normalization
+sec = 5  # 5 seconds of noise
 white = np.random.randn(sec*Fs, 1)
 
-f = 20 # starting frequency in Hz
+f = 20  # starting frequency in Hz
 
 numFreqs = int(np.floor(np.log2(Nyq/f)+1))
 freqs = np.zeros(numFreqs)

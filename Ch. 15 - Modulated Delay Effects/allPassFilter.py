@@ -8,10 +8,10 @@ from scipy import signal
 
 x = np.append(1, np.zeros(100))
 
-buffer = np.zeros(5) # Longer buffer than delay length
+buffer = np.zeros(5)  # Longer buffer than delay length
 
 # Number of samples of delay
-delay = 2 # Does not need to be the same length as buffer
+delay = 2  # Does not need to be the same length as buffer
 
 g = 0.5
 

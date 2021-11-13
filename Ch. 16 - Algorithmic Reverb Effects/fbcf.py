@@ -15,6 +15,7 @@
 
 import numpy as np
 
+
 def fbcf(x, buffer, Fs, n, delay, fbGain, amp, rate):
     # Calculate time in seconds for the current sample
     t = n/Fs
@@ -24,9 +25,9 @@ def fbcf(x, buffer, Fs, n, delay, fbGain, amp, rate):
 
     # Determine indexes for circular buffer
     M = len(buffer)
-    indexC = int(np.mod(n, M)) # Current index
-    indexD = int(np.mod((n-delay+intDelay), M)) # Delay index
-    indexF = int(np.mod((n-delay+intDelay+1), M)) # Fractional index
+    indexC = int(np.mod(n, M))  # Current index
+    indexD = int(np.mod((n-delay+intDelay), M))  # Delay index
+    indexF = int(np.mod((n-delay+intDelay+1), M))  # Fractional index
 
     out = (1 - frac) * buffer[indexD] + frac * buffer[indexF]
 

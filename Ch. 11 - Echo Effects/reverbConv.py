@@ -9,8 +9,8 @@ import matplotlib.pyplot as plt
 from IPython.display import Audio
 
 # Import sound file and IR measurement
-[x, Fs] = soundfile.read('AcGtr.wav') # Mono signal
-[h,_] = soundfile.read('reverbIR.wav') # Stereo IR
+x, Fs = soundfile.read('AcGtr.wav')  # Mono signal
+h, _ = soundfile.read('reverbIR.wav')  # Stereo IR
 
 # Visualize one channel of the impulse response
 plt.plot(h[:, 0])
@@ -18,8 +18,8 @@ plt.plot(h[:, 1])
 plt.show()
 
 # Perform convolution
-yLeft = np.convolve(x, h[:,0])
-yRight = np.convolve(x, h[:,1])
+yLeft = np.convolve(x, h[:, 0])
+yRight = np.convolve(x, h[:, 1])
 
 y = [yLeft, yRight]
 

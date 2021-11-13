@@ -12,6 +12,7 @@
 import numpy as np
 from scipy import signal
 
+
 def lufs(x):
     # Number of samples
     N = len(x)
@@ -31,7 +32,7 @@ def lufs(x):
 
     # Perform pre-filtering
     w = np.zeros(np.shape(x))
-    for channel in range(numChannels): # Loop in case it is stereo
+    for channel in range(numChannels):  # Loop in case it is stereo
         if numChannels == 1:
             w = signal.lfilter(b, a, x)
         elif numChannels == 2:

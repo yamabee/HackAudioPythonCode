@@ -16,7 +16,7 @@ N = len(x)
 # Method 1 - inside a loop
 for n in range(N):
     # convert sample number 'n' to units of seconds 't'
-    t = n * Ts # sec = sample * (sec/sample)
+    t = n * Ts  # sec = sample * (sec/sample)
     # Note: Python indexing starts at n = 0
     # Time in seconds starts at t = 0
 
@@ -24,6 +24,6 @@ for n in range(N):
 # In this case, an array of sample numbers is created
 # np.arange(0,N). Then it is multiplied by the sampling period
 # to create a time vector with units of seconds
-t = np.arange(0, N) * Ts # sec = sample * (sec/sample)
+t = np.arange(0, N) * Ts  # sec = sample * (sec/sample)
 
 print(t)

@@ -8,6 +8,7 @@
 
 import numpy as np
 
+
 def feedbackDelay(x, buffer, delay, fbGain):
     out = x + fbGain * buffer[delay-1]
 

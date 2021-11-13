@@ -8,11 +8,11 @@ import matplotlib.pyplot as plt
 
 x = np.append(1, np.zeros(9))
 
-fracDelay = 3.2 # Fractional delay length in samples
-intDelay = int(np.floor(fracDelay)) # Round down to get the previous (3)
-frac = fracDelay - intDelay # Find the fractional amount (0.2)
+fracDelay = 3.2  # Fractional delay length in samples
+intDelay = int(np.floor(fracDelay))  # Round down to get the previous (3)
+frac = fracDelay - intDelay  # Find the fractional amount (0.2)
 
-buffer = np.zeros(5) # len(buffer) >= ceil(fracDelay) + 1
+buffer = np.zeros(5)  # len(buffer) >= ceil(fracDelay) + 1
 N = len(x)
 
 out = np.zeros(N)
@@ -25,7 +25,7 @@ for n in range(N):
     a3 = buffer[intDelay-1]
     out[n] = a0 * pow(frac, 3) + a1 * pow(frac, 2) + a2 * frac + a3
 
-    buffer = np.append(x[n], buffer[ 0:-1]) # Shift buffer
+    buffer = np.append(x[n], buffer[0:-1])  # Shift buffer
     # buffer[1:] = buffer[0:-1]
     # buffer[0] = x[n]
 

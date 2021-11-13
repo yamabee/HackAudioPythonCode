@@ -14,6 +14,7 @@
 
 import numpy as np
 
+
 def chorusEffect(x, buffer, Fs, n, depth, rate, predelay, wet):
     # Calculate time in seconds for current sample
     t = n/Fs
@@ -21,7 +22,7 @@ def chorusEffect(x, buffer, Fs, n, depth, rate, predelay, wet):
     lfoSamples = (lfoMS/1000) * Fs
 
     # Wet/dry mix
-    mixPercent = wet # 0 = only dry, 100 = only wet
+    mixPercent = wet  # 0 = only dry, 100 = only wet
     mix = mixPercent/100
 
     fracDelay = lfoSamples

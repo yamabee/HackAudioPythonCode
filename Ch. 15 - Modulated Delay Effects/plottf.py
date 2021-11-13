@@ -11,6 +11,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from numpy.fft import fft
 
+
 def plottf(x, Fs):
 
     Ts = 1/Fs

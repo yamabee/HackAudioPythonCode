@@ -9,6 +9,7 @@
 
 import numpy as np
 
+
 def circularBuffer(x, buffer, delay, n):
     # Determine indexes for circular buffer
     N = len(buffer)

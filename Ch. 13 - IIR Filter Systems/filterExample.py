@@ -11,9 +11,9 @@ from IPython.display import Audio
 [x, Fs] = soundfile.read('AcGtr.wav')
 Nyq = Fs/2
 
-m = 4 # Order of the filter
+m = 4  # Order of the filter
 
-freqHz = 500 # frequency in Hz
+freqHz = 500  # frequency in Hz
 Wn = freqHz/Nyq
 
 [b, a] = signal.butter(m, Wn)

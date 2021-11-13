@@ -16,7 +16,7 @@ x = np.sin(2 * np.pi * f * t)
 x = np.append(x, np.zeros(Fs))
 
 # Initialize loop for pitch decrease
-d = 0   # Initially start with no delay
+d = 0  # Initially start with no delay
 N = len(x)
 y = np.zeros(N)
 buffer = np.zeros(Fs*2)
@@ -25,10 +25,10 @@ for n in range(N):
     intDelay = int(np.floor(d))
     frac = d - intDelay
     if intDelay == 0:   # When there are 0 samples of delay
-                        # 'y' is based on input 'x'
+                        # 'y' is based on input 'x'.
         y[n] = (1-frac) * x[n] + frac * buffer[0]
     else:   # Greater than 0 samples of delay
-            # Interpolate between delayed samples "in the past"
+            # Interpolate between delayed samples "in the past".
         y[n] = (1-frac) * buffer[intDelay-1] + frac * buffer[intDelay]
 
     # Store the current input in delay buffer

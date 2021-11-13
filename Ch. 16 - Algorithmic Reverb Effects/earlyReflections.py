@@ -8,13 +8,14 @@
 
 import numpy as np
 
-def earlyReflections(x, buffer, Fs, n):
 
+def earlyReflections(x, buffer, Fs, n):
     # Delay times converted from milliseconds
-    delayTimes = [np.fix(0*Fs), np.fix(0.01277*Fs), np.fix(0.01283*Fs), np.fix(0.01293*Fs), np.fix(0.01333*Fs),
-                              np.fix(0.01566*Fs), np.fix(0.02404*Fs), np.fix(0.02679*Fs), np.fix(0.02731*Fs), np.fix(0.02737*Fs), np.fix(0.02914*Fs),
-                              np.fix(0.02920*Fs), np.fix(0.02981*Fs), np.fix(0.03389*Fs), np.fix(0.04518*Fs), np.fix(0.04522*Fs), np.fix(0.04527*Fs),
-                              np.fix(0.05452*Fs), np.fix(0.06958*Fs)]
+    delayTimes = [np.fix(0 * Fs), np.fix(0.01277 * Fs), np.fix(0.01283 * Fs), np.fix(0.01293 * Fs),
+                  np.fix(0.01333 * Fs), np.fix(0.01566 * Fs), np.fix(0.02404 * Fs), np.fix(0.02679 * Fs),
+                  np.fix(0.02731 * Fs), np.fix(0.02737 * Fs), np.fix(0.02914 * Fs), np.fix(0.02920 * Fs),
+                  np.fix(0.02981 * Fs), np.fix(0.03389 * Fs), np.fix(0.04518 * Fs), np.fix(0.04522 * Fs),
+                  np.fix(0.04527 * Fs), np.fix(0.05452 * Fs), np.fix(0.06958 * Fs)]
 
     numDelays = len(delayTimes)
     for delay in range(numDelays):
@@ -27,15 +28,15 @@ def earlyReflections(x, buffer, Fs, n):
 
     # Determine indexes for circular buffer
     M = len(buffer)
-    indexC = np.mod(n, M) # current index
+    indexC = np.mod(n, M)  # current index
     buffer[indexC] = x
 
-    out = 0 # initialize the output to be used in loop
+    out = 0  # initialize the output to be used in loop
 
     # Loop through all the taps
     for tap in range(len(delayTimes)):
         # Find the circular buffer index for the current tap
-        indexTDL = np.mod(n-delayTimes[tap], M)
+        indexTDL = np.mod(n - delayTimes[tap], M)
 
         # 'Tap' the delay line and add current tap with output
         out = out + gains[tap] * buffer[indexTDL]

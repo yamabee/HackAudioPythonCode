@@ -8,7 +8,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-
 Fs = 48000
 Ts = 1/Fs
 t = np.arange(0, 3*Fs) * Ts
@@ -19,10 +18,10 @@ plt.figure(1)
 plt.plot(t, x)
 
 # Convex fades
-numSamples = 1 * Fs # 1 second fade-in/out
+numSamples = 1 * Fs  # 1 second fade-in/out
 
 # Exponent for curve
-c = 2 # c can be any number > 1 (linear = 1)
+c = 2  # c can be any number > 1 (linear = 1)
 
 a = np.linspace(0, 1, numSamples)
 fadeOut = 1 - pow(a, c)

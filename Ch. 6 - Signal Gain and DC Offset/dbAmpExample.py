@@ -4,18 +4,18 @@
 #
 # See also DBAMPCHANGE
 
-import matplotlib as plt
+import matplotlib.pyplot as plt
 import numpy as np
 import soundfile
 import dbAmpChange as dbac
 
 # Example - Sine wave test signal
 [x, Fs] = soundfile.read('sw20.wav')
-x2 = dbac.db_amp_change(x, 6)
-x3 = dbac.db_amp_change(x, -6)
+x2 = dbac.dbAmpChange(x, 6)
+x3 = dbac.dbAmpChange(x, -6)
 
 Ts = 1/Fs
-N = len(x) # Total number of samples in signal
+N = len(x)  # Total number of samples in signal
 t = np.arange(0, N) * Ts
 
 # Plot the result

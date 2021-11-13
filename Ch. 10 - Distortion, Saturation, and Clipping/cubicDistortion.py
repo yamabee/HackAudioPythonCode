@@ -11,6 +11,7 @@
 
 import numpy as np
 
+
 def cubicDistortion(x, a):
     N = len(x)
     y = np.zeros([N, 1])

@@ -31,7 +31,7 @@ dBGain = Q
 plt.figure(1)
 for freq in range(4):
     y = biquadFilter(x, Fs, freq, Q, dBGain, 'lpf', 1)
-    plt.plot(t,y)
+    plt.plot(t, y)
 plt.legend(['f = 1', 'f = 2', 'f = 3', 'f = 4'])
 plt.xlabel('Time (sec.)')
 
@@ -42,6 +42,6 @@ plt.figure(2)
 Q = np.arange(1, 5)*(0.707/2)
 for q in range(4):
     y = biquadFilter(x, Fs, freq, Q[q], dbGain, 'lpf', 1)
-    plt.plot(t,y)
+    plt.plot(t, y)
 plt.legend('Q = 0.3535', 'Q = 0.707', 'Q = 1.0605', 'Q = 1.414')
 plt.xlabel('Time (sec.)')

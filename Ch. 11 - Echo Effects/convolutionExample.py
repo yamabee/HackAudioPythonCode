@@ -27,19 +27,19 @@ y = np.convolve(x, h)
 
 # Plot signals
 xAxis = np.arange(0, N)/Fs
-plt.subplot(3,1,1)
+plt.subplot(3, 1, 1)
 plt.plot(xAxis, x)
 plt.axis([-0.1, 2, -1.1, 1.1])
 plt.xlabel('Time (sec.)')
 plt.title('Input Signal - x[n]')
 
-plt.subplot(3,1,2)
+plt.subplot(3, 1, 2)
 plt.stem(xAxis, h)
 plt.axis([-0.1, 2, -1.1, 1.1])
 plt.xlabel('Time (sec.)')
 plt.title('Impulse Response')
 
-plt.subplot(3,1,3)
+plt.subplot(3, 1, 3)
 plt.plot(xAxis, y[0:Fs*2])
 plt.axis([-0.1, 2, -1.1, 1.1])
 plt.xlabel('Time (sec.)')

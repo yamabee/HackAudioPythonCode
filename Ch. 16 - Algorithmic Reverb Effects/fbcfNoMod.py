@@ -13,11 +13,12 @@
 
 import numpy as np
 
+
 def fbcfNoMod(x, buffer, n, delay, fbGain):
     # Determine indexes for circular buffer
     M = len(buffer)
-    indexC = np.mod(n, M) # Current index
-    indexD = int(np.mod((n - delay)), M) # Delay index
+    indexC = np.mod(n, M)  # Current index
+    indexD = int(np.mod((n - delay)), M)  # Delay index
 
     out = buffer[indexD]
 

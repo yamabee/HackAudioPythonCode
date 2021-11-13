@@ -14,22 +14,22 @@ import soundfile
 x, Fs = soundfile.read('AcGtr.wav')
 
 # Parameters for compressor
-T = -15 # Threshold = -15 dBFS
-R = 10 # Ratio = 10:1
+T = -15  # Threshold = -15 dBFS
+R = 10  # Ratio = 10:1
 
 # Initialize separate attack and release times
-attackTime = 0.05 # time in seconds
+attackTime = 0.05  # time in seconds
 alphaA = np.exp(-np.log(9)/(Fs * attackTime))
-releaseTime = 0.25 # time in seconds
+releaseTime = 0.25  # time in seconds
 alphaR = np.exp(-np.log(9)/(Fs * releaseTime))
 
 N = len(x)
 y = np.zeros(N)
 lin_A = np.zeros(N)
 
-gainSmoothPrev = 0 # Initialize smoothing variable
+gainSmoothPrev = 0  # Initialize smoothing variable
 
-y_prev = 0 # Initialize ouptut for feedback detection
+y_prev = 0  # Initialize ouptut for feedback detection
 
 # Loop over each sample to see if it is above threshold
 for n in range(N):
@@ -47,7 +47,7 @@ for n in range(N):
         gainSC = T + (y_dB - T)/R
 
     else:
-        gainSC = y_dB # Do not perform compression
+        gainSC = y_dB  # Do not perform compression
 
     gainChange_dB = gainSC - y_dB
 
@@ -65,18 +65,18 @@ for n in range(N):
 
     # Apply linear amplitude scalar
     y[n] = lin_A[n] * x[n]
-    y_prev = y[n] # Update the next cycle
+    y_prev = y[n]  # Update the next cycle
 
     # Update gainSmoothPrev used in the next sample of the loop
     gainSmoothPrev = gainSmooth
 
 t = np.arange(0, N)/Fs
 
-plt.subplot(2,1,1)
-plt.plot(t,x)
+plt.subplot(2, 1, 1)
+plt.plot(t, x)
 plt.title('Input Signal')
 plt.axis([0, 7, -1.1, 1.1])
-plt.subplot(2,1,2)
+plt.subplot(2, 1, 2)
 plt.plot(t, y, t, lin_A)
 plt.title('Output')
 plt.axis([0, 7, -1.1, 1.1])

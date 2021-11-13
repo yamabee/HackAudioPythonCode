@@ -12,12 +12,13 @@
 
 import numpy as np
 
+
 def biquadFilter(x, Fs, f0, Q, dBGain, type, form):
     N = len(x)
     out = np.zeros(N)
 
-    w0 = 2 * np.pi * f0/Fs # Angular freq. (radians/sample)
-    alpha = np.sin(w0)/(2 * Q) # Filter Width
+    w0 = 2 * np.pi * f0/Fs  # Angular freq. (radians/sample)
+    alpha = np.sin(w0)/(2 * Q)  # Filter Width
     A = np.sqrt(pow(10, dBGain/20))
 
     if type == 'lpf':

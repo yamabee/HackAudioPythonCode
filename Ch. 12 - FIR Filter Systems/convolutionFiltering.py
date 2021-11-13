@@ -12,12 +12,12 @@ from IPython.display import Audio
 [x, Fs] = soundfile.read('AcGtr.wav')
 Nyq = Fs/2
 
-n = 30 # Order of the filter
+n = 30  # Order of the filter
 
-freqHz = 500 # frequency in Hz
-Wn = freqHz/Nyq # Normalized frequency for firwin
+freqHz = 500  # frequency in Hz
+Wn = freqHz/Nyq  # Normalized frequency for firwin
 
-h = signal.firwin(n, Wn, window='hamming', pass_zero='lowpass') # filter design function
+h = signal.firwin(n, Wn, window='hamming', pass_zero='lowpass')  # filter design function
 # 'h' is the impulse response of the filter
 
 # Convolution applies the filter to a signal

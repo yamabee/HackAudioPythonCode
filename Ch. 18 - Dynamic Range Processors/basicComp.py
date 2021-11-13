@@ -11,17 +11,17 @@ import matplotlib.pyplot as plt
 
 # Step input signal
 Fs = 48000
-Ts = 1/Fs
+Ts = 1 / Fs
 x = np.append(np.zeros(Fs), np.ones(Fs))
 x = np.append(x, np.zeros(Fs))
 
 N = len(x)
 # Parameters for compressor
-T = -12 # Threshold = -12 dBFS
-R = 3 # Ratio = 3:1
-responseTime = 0.25 # time in seconds
-alpha = np.exp(-np.log(9)/(Fs * responseTime))
-gainSmoothPrev = 0 # Initialize smoothing variable
+T = -12  # Threshold = -12 dBFS
+R = 3  # Ratio = 3:1
+responseTime = 0.25  # time in seconds
+alpha = np.exp(-np.log(9) / (Fs * responseTime))
+gainSmoothPrev = 0  # Initialize smoothing variable
 
 y = np.zeros(N)
 lin_A = np.zeros(N)
@@ -31,25 +31,25 @@ for n in range(N):
     ###### Calculations of the detection path
     # Turn the input signal into a unipolar signal on the dB scale
     x_uni = abs(x[n])
-    x_dB = 20 * np.log10(x_uni/1)
+    x_dB = 20 * np.log10(x_uni / 1)
     # Ensure there are no values of negative infinity
     if x_dB < - 96:
         x_dB = -96
 
     # Static characteristics
     if x_dB > T:
-        gainSC = T + (x_dB - T)/R # Perform downwards compression
+        gainSC = T + (x_dB - T) / R  # Perform downwards compression
 
     else:
-        gainSC = x_dB # Do not perform compression
+        gainSC = x_dB  # Do not perform compression
 
     gainChange_dB = gainSC - x_dB
 
     # Smooth over the gainChange_dB to alter response time
-    gainSmooth = ((1-alpha) * gainChange_dB) + (alpha * gainSmoothPrev)
+    gainSmooth = ((1 - alpha) * gainChange_dB) + (alpha * gainSmoothPrev)
 
     # Convert to linear amplitude scalar
-    lin_A[n] = pow(10, gainSmooth/20)
+    lin_A[n] = pow(10, gainSmooth / 20)
 
     ###### Apply linear amplitude from detection path
     ###### to input sample.
@@ -60,17 +60,17 @@ for n in range(N):
 
 t = np.arange(0, N) * Ts
 
-plt.subplot(3,1,1)
+plt.subplot(3, 1, 1)
 plt.plot(t, x)
 plt.title('Step Input')
 plt.axis([0, 3, -0.1, 1.1])
 
-plt.subplot(3,1,2)
+plt.subplot(3, 1, 2)
 plt.plot(t, y)
 plt.title('Comp Out')
 plt.axis([0, 3, -0.1, 1.1])
 
-plt.subplot(3,1,3)
+plt.subplot(3, 1, 3)
 plt.plot(t, lin_A)
 plt.title('Gain Reduction')
 plt.axis([0, 3, -0.1, 1.1])

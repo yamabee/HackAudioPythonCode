@@ -11,24 +11,25 @@
 
 import numpy as np
 
+
 def slewRateDistortion(x, Fs, maxFreq):
     Ts = 1/Fs
     peak = 1
-    slewRate = maxFreq * 2 * np.pi * peak # convert freq. to slew rate
+    slewRate = maxFreq * 2 * np.pi * peak  # convert freq. to slew rate
 
-    slope = slewRate * Ts # Convert slew rate to slope/sample
+    slope = slewRate * Ts  # Convert slew rate to slope/sample
 
     out = np.zeros(np.size(x)) # Total number of samples
     prevOut = 0 # Initialize feedback delay sample
 
     for n in range(len(x)):
         dlta = x[n] - prevOut
-        if dlta > slope: # Dont let dlta exceed max slope
+        if dlta > slope:  # Dont let dlta exceed max slope
             dlta = slope
         elif dlta < -slope:
             dlta = -slope
 
         out[n] = prevOut + dlta
-        prevOut = out[n] # Save current 'out' for next loop
+        prevOut = out[n]  # Save current 'out' for next loop
 
     return out

@@ -14,13 +14,14 @@
 
 import numpy as np
 
+
 def feedbackFlanger(x, buffer, Fs, n, depth, rate, predelay, wet):
     # Calculate time in seconds
     t = n/Fs
     lfo = depth * np.sin(2 * np.pi * rate * t) + predelay
 
     # Wet/dry mix
-    mixPercent = wet # 0 = only dry, 100 = only wet
+    mixPercent = wet  # 0 = only dry, 100 = only wet
     mix = mixPercent/100
 
     fracDelay = lfo

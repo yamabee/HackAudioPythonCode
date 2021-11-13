@@ -11,11 +11,12 @@ import matplotlib.pyplot as plt
 import numpy as np
 from numpy.fft import fft
 
+
 def plottf(x, Fs):
 
     Ts = 1/Fs
     N = len(x)
-    t = np.arange(0, N) * 1/Fs
+    t = np.arange(0, N) * Ts
 
     plt.subplot(2, 1, 1)
     plt.plot(t, x)
@@ -39,3 +40,5 @@ def plottf(x, Fs):
     plt.xlabel('Frequency (Hz)')
     plt.ylabel('Amplitude (dB)')
     plt.show()
+
+    return

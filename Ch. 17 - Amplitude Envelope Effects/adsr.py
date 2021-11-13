@@ -9,6 +9,7 @@
 
 import numpy as np
 
+
 def adsr(x, Fs, attackTime, decayTime, sustainAmplitude, releaseTime):
     # Convert time inputs to seconds
     attackTimeSec = attackTime/1000
@@ -16,10 +17,10 @@ def adsr(x, Fs, attackTime, decayTime, sustainAmplitude, releaseTime):
     releaseTimeSec = releaseTime/1000
 
     # Convert seconds to samples and determine sustain time
-    a = int(np.round(attackTimeSec * Fs))   # Round each to an integer
-    d = int(np.round(decayTimeSec * Fs))    # number of samples.
+    a = int(np.round(attackTimeSec * Fs))  # Round each to an integer
+    d = int(np.round(decayTimeSec * Fs))  # number of samples.
     r = int(np.round(releaseTimeSec * Fs))
-    s = len(x) - (a + d + r) # determine length of sustain
+    s = len(x) - (a + d + r)  # determine length of sustain
 
     # Create linearly spaced fades for A, D, and R. Create hold for S.
     aFade = np.linspace(0, 1, a)

@@ -8,7 +8,7 @@
 
 import soundfile
 import numpy as np
-import matplotlib as plt
+import matplotlib.pyplot as plt
 
 # Example 1: Array [-1 to 1] to span entire full-scale range
 input = np.arange(-1, 1, 0.1)
@@ -20,7 +20,7 @@ input = np.arange(-1, 1, 0.1)
 # input, Fs = soundfile.read('sw20.wav')
 
 # Assign input to out1, for comparison purposes
-out1 = input # no amplitude change
+out1 = input  # no amplitude change
 
 N = len(input)
 out2 = np.zeros(N)

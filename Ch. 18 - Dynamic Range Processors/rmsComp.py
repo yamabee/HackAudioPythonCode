@@ -23,7 +23,7 @@ alphaR = np.exp(-np.log(9)/(Fs * releaseTime))
 
 gainSmoothPrev = 0  # Initialize smoothing variable
 
-M = 2048 # length of RMS calculation
+M = 2048  # length of RMS calculation
 
 # Initialize the first time window in a buffer
 x_win = np.append(np.zeros(int(M/2)), x[0:int(M/2)])
@@ -66,14 +66,13 @@ for n in range(N):
     else:
         x_win = np.append(x_win[1:], 0)
 
-
 t = np.arange(0, N)/Fs
 
-plt.subplot(2,1,1)
-plt.plot(t,x)
+plt.subplot(2, 1, 1)
+plt.plot(t, x)
 plt.title('Input Signal')
 plt.axis([0, t[-1], -1.1, 1.1])
-plt.subplot(2,1,2)
+plt.subplot(2, 1, 2)
 plt.plot(t, y, t, lin_A)
 plt.title('Output')
 plt.axis([0, t[-1], -1.1, 1.1])
